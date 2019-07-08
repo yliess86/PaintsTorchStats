@@ -15,6 +15,7 @@ NAME2PATH = {
 
     '[Custom]: Strokes, Simple'        : './data/custom_strokes_simple.csv',
     '[Custom]: Strokes, Double'        : './data/custom_strokes_double.csv',
+    '[Custom]: Random, Simple'         : './data/custom_random_simple.csv',
 
     '[Custom + Paper]: Strokes, Double': './data/custom_and_paper_strokes_double.csv',
 }
@@ -31,17 +32,12 @@ NAME2DATA = {
 X         = list(range(0, 120, 20))
 COLORS    = [
     'rgb(255, 0, 145)',
-    # 'rgb(211, 108, 235)',
     'rgb(118, 164, 255)',
-    # 'rgb(0, 202, 255)',
     'rgb(0, 227, 255)',
-    # 'rgb(0, 234, 235)',
     'rgb(0, 238, 206)',
-    # 'rgb(88, 240, 171)',
     'rgb(137, 224, 113)',
-    # 'rgb(180, 204, 56)',
     'rgb(219, 178, 0)',
-    # 'rgb(255, 144, 0)',
+    'rgb(255, 144, 56)',
 ]
 
 NAME2PLOT = {
@@ -61,7 +57,6 @@ data   = [plot for plots in NAME2PLOT.values() for plot in plots.values()]
 layout = go.Layout(
     paper_bgcolor='rgb(255,255,255)',
     plot_bgcolor='rgb(229,229,229)',
-    # title='FID by Model over Epochs',
     xaxis=dict(
         title='Epochs',
         gridcolor='rgb(255,255,255)',
@@ -85,6 +80,5 @@ layout = go.Layout(
     ),
 )
 fig = go.Figure(data=data, layout=layout)
-# plot(fig)
-# pio.write_image(fig, 'fid.eps')
-pio.write_image(fig, 'fid.png')
+pio.write_image(fig, 'fids.eps')
+pio.write_image(fig, 'fids.png')
