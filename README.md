@@ -1,0 +1,2 @@
+# PaintsTorchStats
+Statistic for PaintsTorch
