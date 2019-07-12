@@ -14,7 +14,7 @@ def img2b64(img):
     
 def b642img(b64):
     string = str(b64)[2:-1].replace('data:image/png;base64,', '')
-    img    = Image.open(BytesIO(string))
+    img    = Image.open(BytesIO(base64.b64decode(string)))
     return img
 
 url                = 'https://dvic.devinci.fr/dgx/paints_torch/api/v1/colorizer'
@@ -45,7 +45,9 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files))):
         }
         
         resp         = requests.post(url, data)
-        data         = resp.json()['colored']
+        data         = resp.json()
+        print(data)
+        colored      = data['colored']
         illustration = b642img(data)
         
         illustration.save(os.path.join(
