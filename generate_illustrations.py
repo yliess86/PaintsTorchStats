@@ -39,7 +39,7 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files))):
     for model in models:
         data = {
             'sketch'  : img2b64(lineart),
-            'hint'    : img2b64,
+            'hint'    : img2b64(hint),
             'opacity' : 0.1,
             'model'   : model
         }
