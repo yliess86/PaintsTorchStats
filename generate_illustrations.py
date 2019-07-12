@@ -45,7 +45,7 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files))):
         }
         
         resp         = requests.post(url, data)
-        data         = resp.json['colored']
+        data         = resp.json()['colored']
         illustration = b642img(data)
         
         illustration.save(os.path.join(
