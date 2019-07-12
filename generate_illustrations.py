@@ -37,21 +37,22 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files))):
     hint              = Image.open(hint_f)
     
     for model in models:
-        data         = {
+        data = {
             'sketch'  : img2b64(lineart),
             'hint'    : img2b64,
             'opacity' : 0.1,
             'model'   : model
         }
         
-        resp         = requests.post(url, data)
-        data         = resp.json()
-        print(data)
-        colored      = data['colored']
-        illustration = b642img(data)
+        resp = requests.post(url, data)
+        data = resp.json()
         
-        illustration.save(os.path.join(
-            illustrations_path, 
-            f"{hint_f.split('.')[0]}_{model}.png"
-        ))
+        if 'colored' in data:
+            colored      = data['colored']
+            illustration = b642img(data)
+        
+            illustration.save(os.path.join(
+                illustrations_path, 
+                f"{hint_f.split('.')[0]}_{model}.png"
+            ))
         
