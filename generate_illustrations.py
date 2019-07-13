@@ -45,7 +45,7 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files)), total=len(hint
             'model'   : model
         }
         
-        resp = requests.post(url, data)
+        resp = requests.post(url, json=data)
         data = resp.json()
         
         if 'colored' in data:
