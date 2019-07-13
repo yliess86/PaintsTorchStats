@@ -50,7 +50,7 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files)), total=len(hint
         
         if 'colored' in data:
             colored      = data['colored']
-            illustration = b642img(data)
+            illustration = b642img(colored)
         
             illustration.save(os.path.join(
                 illustrations_path, 
