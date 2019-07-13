@@ -32,7 +32,7 @@ hint_files         = [os.path.join(hints_path, f) for f in os.listdir(hints_path
 if not os.path.exists(illustrations_path):
     os.mkdir(illustrations_path)
 
-for files in tqdm(zip(sorted(lineart_files), sorted(hint_files)), total=len(hint_files)):
+for i, files in enumerate(tqdm(zip(sorted(lineart_files), sorted(hint_files))), total=len(hint_files)):
     lineart_f, hint_f = files
     lineart           = Image.open(lineart_f)
     hint              = Image.open(hint_f)
@@ -54,6 +54,6 @@ for files in tqdm(zip(sorted(lineart_files), sorted(hint_files)), total=len(hint
         
             illustration.save(os.path.join(
                 illustrations_path, 
-                f"{hint_f.split('.')[0]}_{model}.png"
+                f"{i:03d}_{model}.png"
             ))
         
