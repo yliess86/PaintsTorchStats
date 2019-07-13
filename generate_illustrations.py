@@ -10,10 +10,11 @@ def img2b64(img):
     buff = BytesIO()
     img.save(buff, format='PNG')
     b64  = b'data:image/png;base64,' + base64.b64encode(buff.getvalue())
+    b64  = str(b64)[2:-1]
     return b64
     
 def b642img(b64):
-    string = str(b64)[2:-1].replace('data:image/png;base64,', '')
+    string = b64.replace('data:image/png;base64,', '')
     img    = Image.open(BytesIO(base64.b64decode(string)))
     return img
 
