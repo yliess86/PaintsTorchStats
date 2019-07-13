@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="wdth=device-width,initial-scale=1.0">
+        <title>PaintsTorch Study</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <section id="new" class="">
+                <input type="button" value="New" onclick="new_session();">
+            </section>
+        
+            <section id="rating" class="hidden">
+                <img id="illustration" src="">
+                <div id="rate">
+                    <span><input type="radio" name="rate" value="5">Excellent</span>
+                    <span><input type="radio" name="rate" value="4">Good</span>
+                    <span><input type="radio" name="rate" value="3" id="fair" checked>Fair</span>
+                    <span><input type="radio" name="rate" value="2">Poor</span>
+                    <span><input type="radio" name="rate" value="1">Bad</span>
+                </div>
+                <input id="submit" class="hidden" type="button" value="Submit" onclick="submit();">
+            </section>
+        </main>
+        
+        <script type="text/javascript" src="./script.js"></script>
+    </body>
+</html>
