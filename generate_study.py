@@ -37,7 +37,6 @@ fig  = ff.create_annotated_heatmap(
 
 fig['layout']['xaxis']['title'] = 'MOS'
 fig['layout']['yaxis']['title'] = 'Model'
-fig['layout']['margin']['pad']  = 20
 
 pio.write_image(fig, 'heatmap.eps')
 pio.write_image(fig, 'heatmap.png')
