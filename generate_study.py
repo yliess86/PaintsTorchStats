@@ -26,17 +26,17 @@ for model in MODELS:
         for rate in range(1, 6)
     ])
     
-
-trace  = ff.create_annotated_heatmap(z=DATA, x=list(range(1, 6)), y=MODELS, colorscale='Viridis', annotation_text=DATA)
-layout = go.Layout(
-    paper_bgcolor='rgb(255,255,255)',
-    xaxis=dict(
-        title='MOS'
-    ),
-    yaxis=dict(
-        title='Model'
-    )
+fig  = ff.create_annotated_heatmap(
+    z               = DATA, 
+    x               = list(range(1, 6)), 
+    y               = MODELS, 
+    colorscale      = 'Viridis', 
+    annotation_text = DATA,
+    showscale       = True,
 )
-fig    = go.Figure(data=(trace, ), layout=layout)
+
+fig['layout']['xaxis']['title'] = 'MOS'
+fig['layout']['yaxis']['title'] = 'Model'
+
 pio.write_image(fig, 'heatmap.eps')
 pio.write_image(fig, 'heatmap.png')
