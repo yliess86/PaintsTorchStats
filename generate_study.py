@@ -1,3 +1,4 @@
+import plotly.figure_factory as ff
 import plotly.graph_objs as go
 import plotly.plotly as py
 import plotly.io as pio
@@ -26,7 +27,7 @@ for model in MODELS:
     ])
     
 
-trace  = go.Heatmap(z=DATA, x=list(range(1, 6)), y=MODELS)
+trace  = ff.create_annotated_heatmap(z=DATA, x=list(range(1, 6)), y=MODELS, colorscale='Viridis', annotation_text=DATA)
 layout = go.Layout(
     paper_bgcolor='rgb(255,255,255)',
     xaxis=dict(
