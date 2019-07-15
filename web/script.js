@@ -1,11 +1,15 @@
 let UUID  = null;
 let FILES = [];
 let FILE  = null;
+let N     = 0;
+let I     = 0;
 
 let reset_session = function() {
     UUID  = null;
     FILES = [];
     FILE  = null;
+    N     = 0;
+    I     = 0;
 };
 
 let shuffle = function(array) {
@@ -29,6 +33,9 @@ let get_next = function() {
     }
 
     FILE = FILES.pop();
+    I   += 1;
+    
+    $('#progressbar-inner').css('width', (Math.round(I / N * 100) / 100) + '%');
 
     $.ajax({
         url     : 'https://dvic.devinci.fr/dgx/paints_torch/api/v1/study/' + FILE,
@@ -46,6 +53,7 @@ let get_list = () => {
         type    : 'GET',
         success : function(response){
             FILES = response.files;
+            N     = FILES.length;
             shuffle(FILES);
             get_next();
         }

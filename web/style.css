@@ -49,6 +49,9 @@ input[type=radio] {
     border: none;
     background-color: white;
     box-shadow: none;
+    
+    width: 25px;
+    height: 25px;
 }
 input[type=radio]:checked {
     border: none;
@@ -60,9 +63,9 @@ input[type=radio]:checked {
 }
 
 #illustration {
-    max-height: 60%;
-    max-width: 70%;
-    margin-bottom: 15px;
+    max-height: 60vh;
+    max-width: 70vw;
+    margin-bottom: 25px;
     
     border-radius: 10px;
     
@@ -70,12 +73,37 @@ input[type=radio]:checked {
 }
 
 #rate {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-size: 1rem;
     color: white;
 }
 
 #rate span {
     margin: 0px 5px;
+}
+
+#progressbar {
+    position: relative;
+    width: 70vw;
+    height: 25px;
+    
+    margin-bottom: 25px;
+    border-radius: 10px;
+    
+    background-color: white;
+    overflow: hidden;
+}
+
+#progressbar-inner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    height: 25px;
+    width: 10%;
+    
+    background: linear-gradient(90deg, rgba(113,90,242,1) 0%, rgba(19,236,198,1) 100%);
+
+    transition: 0.3s;
 }
 
