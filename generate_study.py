@@ -36,6 +36,6 @@ layout = go.Layout(
         title='Model'
     ),
 )
-fig    = go.Figure(data=tace, layout=layout)
+fig    = go.Figure(data=trace, layout=layout)
 pio.write_image(fig, 'heatmap.eps')
 pio.write_image(fig, 'heatmap.png')
