@@ -14,11 +14,15 @@ STUDY = pd.read_csv('./data/StudyDataset/study.csv', ';', names=('UUID', 'file_n
 DATA   = []
 MODELS = ['PaperRS', 'CustomSS', 'CustomSD']
 
+print(f'Users: {STUDY.UUID.nunique()}')
+print(f'Rates: {len(STUDY)}/{STUDY.UUID.nunique() * 480}')
+print()
+
 for model in MODELS:
     STD  = STUDY[STUDY.model == model].rate.std()
     MEAN = STUDY[STUDY.model == model].rate.mean()
     
-    print(f'Model: {model}', f'Mean: {MEAN}', f'Std: {STD}')
+    print(f'Model: {model}', f'Mean: {MEAN:.2f}', f'Std: {STD:.3f}')
 
 for model in MODELS:
     DATA.append([

@@ -100,7 +100,7 @@ input[type=radio]:checked {
     left: 0px;
     
     height: 25px;
-    width: 10%;
+    width: 0%;
     
     background: linear-gradient(90deg, rgba(113,90,242,1) 0%, rgba(19,236,198,1) 100%);
 

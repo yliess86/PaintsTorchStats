@@ -35,7 +35,7 @@ let get_next = function() {
     FILE = FILES.pop();
     I   += 1;
     
-    $('#progressbar-inner').css('width', (I / N) + '%');
+    $('#progressbar-inner').css('width', (I / N * 100) + '%');
 
     $.ajax({
         url     : 'https://dvic.devinci.fr/dgx/paints_torch/api/v1/study/' + FILE,
