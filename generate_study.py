@@ -39,9 +39,11 @@ fig  = ff.create_annotated_heatmap(
     showscale       = True,
 )
 
-fig['layout']['xaxis']['title'] = 'MOS'
-fig['layout']['yaxis']['title'] = 'Model'
-fig['layout']['margin']['l']    = 100
+fig['layout']['xaxis']['title']      = 'MOS'
+fig['layout']['xaxis']['automargin'] = True
+fig['layout']['yaxis']['title']      = 'Model'
+fig['layout']['yaxis']['automargin'] = True
+fig['layout']['margin']['l']         = 100
 
 pio.write_image(fig, 'heatmap.eps')
 pio.write_image(fig, 'heatmap.png')
